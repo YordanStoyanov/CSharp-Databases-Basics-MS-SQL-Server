@@ -1,0 +1,50 @@
+CREATE DATABASE School
+
+USE School
+
+CREATE TABLE Country(
+	Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(50) NOT NULL UNIQUE
+)
+
+CREATE TABLE Courses(
+	Id INT NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(50) NOT NULL UNIQUE
+)
+
+DROP TABLE Country--iztriva zayavkite
+
+INSERT INTO Courses ([Id], [Name])
+	VALUES (1, 'C#')
+		  ,(2, 'SQL')
+		  ,(3, 'C# OOP')
+
+SELECT * FROM Students
+
+SELECT * FROM Country
+
+ALTER TABLE Students
+	ADD [EMAIL] NVARCHAR(255)
+
+SELECT * FROM Students
+
+ALTER TABLE Students
+	DROP COLUMN [EMAIL]
+
+USE Geography
+
+USE School
+
+CREATE TABLE Mountains(
+	ID INT IDENTITY PRIMARY KEY NOT NULL,
+	[Name] NVARCHAR(255) NOT NULL
+)
+
+CREATE TABLE Peaks(
+	ID INT IDENTITY PRIMARY KEY NOT NULL,
+	[Name] NVARCHAR(255) NOT NULL,
+	MountainsID INT NOT NULL,
+	CONSTRAINT FK_Peaks_Mountains
+		FOREIGN KEY (MountainsID) 
+		REFERENCES Mountains(ID)
+)
